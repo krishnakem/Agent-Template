@@ -46,8 +46,38 @@ skills/
     SKILL.md                 # Playbook for an OpenClaw agent using this plugin
 
 scripts/
+  create-plugin.mjs          # Scaffold a new plugin from this template
   test-plugin.ts             # Local smoke test for plugin registration/lifecycle
 ```
+
+## Creating Plugins From This Template
+
+On GitHub, mark this repository as a template repository:
+
+```text
+Settings -> General -> Template repository
+```
+
+For local scaffolding, use the included script:
+
+```bash
+npm run create:plugin -- ../weather-agent \
+  --id weather-agent \
+  --name "Weather Agent" \
+  --tool-prefix weather \
+  --init-git
+```
+
+That command:
+
+- copies this template into the target directory
+- skips generated folders such as `.git`, `node_modules`, and `dist`
+- rewrites plugin id, display name, package name, config paths, and skill name
+- optionally prefixes tool names so every registered tool gets the same namespace
+- optionally initializes fresh git history
+
+Use `--install` if you want the script to run `npm install` in the new plugin.
+Run `npm run create:plugin -- --help` for all options.
 
 ## How To Turn This Into A Real Plugin
 

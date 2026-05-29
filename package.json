@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "create:plugin": "node scripts/create-plugin.mjs",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test:plugin": "tsx scripts/test-plugin.ts"
